@@ -1,0 +1,126 @@
+{
+    "output_file": "NAEC.json",
+    "nanoleaf": {
+        "type": "textbox",
+        "value": "Nanoleaf-Aurora",
+        "label": "Nanoleaf Aurora hostname or IP",
+        "tooltip": "hostname or IP address",
+        "group": ""
+    },
+    "nanoleaf_token": {
+        "type": "textbox",
+        "value": "",
+        "label": "Nanoleaf Aurora connection token",
+        "tooltip": "Nanoleaf Aurora connection token",
+        "group": ""
+    },
+    "default_effect": {
+        "type": "textbox",
+        "label": "Effect name",
+        "value": "",
+        "tooltip": "Nanoleaf Aurora effect",
+        "group": "Default"
+    },
+    "follow_effect": {
+        "type": "textbox",
+        "label": "Effect name",
+        "value": "",
+        "tooltip": "Nanoleaf Aurora effect",
+        "group": "Follow"
+    },
+    "follow_effectduration": {
+        "type": "slider",
+        "value": 5,
+        "min": 0,
+        "max": 60,
+        "ticks": 1,
+        "label": "Effect duration (seconds)",
+        "tooltip": "Follow effect duration in seconds",
+        "group": "Follow"
+    },
+    "sub_effect": {
+        "type": "textbox",
+        "label": "Effect name",
+        "value": "",
+        "tooltip": "Nanoleaf Aurora effect",
+        "group": "Subscription"
+    },
+    "sub_effectduration": {
+        "type": "slider",
+        "value": 5,
+        "min": 0,
+        "max": 60,
+        "ticks": 1,
+        "label": "Effect duration (seconds)",
+        "tooltip": "Subscription effect duration in seconds",
+        "group": "Subscription"
+    },
+    "donation_effect": {
+        "type": "textbox",
+        "label": "Effect name",
+        "value": "",
+        "tooltip": "Nanoleaf Aurora effect",
+        "group": "Donation"
+    },
+    "donation_effectduration": {
+        "type": "slider",
+        "value": 5,
+        "min": 0,
+        "max": 60,
+        "ticks": 1,
+        "label": "Effect duration (seconds)",
+        "tooltip": "Donation effect duration in seconds",
+        "group": "Donation"
+    },
+    "cheer_effect": {
+        "type": "textbox",
+        "label": "Effect name",
+        "value": "",
+        "tooltip": "Nanoleaf Aurora effect",
+        "group": "Cheer"
+    },
+    "cheer_effectduration": {
+        "type": "slider",
+        "value": 5,
+        "min": 0,
+        "max": 60,
+        "ticks": 1,
+        "label": "Effect duration (seconds)",
+        "tooltip": "Cheer effect duration in seconds",
+        "group": "Cheer"
+    },
+    "host_effect": {
+        "type": "textbox",
+        "label": "Effect name",
+        "value": "",
+        "tooltip": "Nanoleaf Aurora effect",
+        "group": "Host"
+    },
+    "host_effectduration": {
+        "type": "slider",
+        "value": 5,
+        "min": 0,
+        "max": 60,
+        "ticks": 1,
+        "label": "Effect duration (seconds)",
+        "tooltip": "Host effect duration in seconds",
+        "group": "Host"
+    },
+    "raid_effect": {
+        "type": "textbox",
+        "label": "Effect name",
+        "value": "",
+        "tooltip": "Nanoleaf Aurora effect",
+        "group": "Raid"
+    },
+    "raid_effectduration": {
+        "type": "slider",
+        "value": 5,
+        "min": 0,
+        "max": 60,
+        "ticks": 1,
+        "label": "Effect duration (seconds)",
+        "tooltip": "Raid effect duration in seconds",
+        "group": "Raid"
+    }
+}
