@@ -2,7 +2,7 @@
 Info
 #################
 Description: Nanoleaf Aurora Effect Changer for Streamlabs Chatbot
-Created by: CyberHumi - twitch.tv/CyberHumi, twitter.com/CyberHumiDE
+Created by: CyberHumi - www.twitch.tv/CyberHumi, www.twitter.com/CyberHumiDE
 Version: 1.0
 
 
