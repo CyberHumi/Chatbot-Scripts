@@ -6,8 +6,6 @@ import os
 import json
 import codecs
 import re
-import socket
-import urllib.request
 import websocket
 try:
     import thread
