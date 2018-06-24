@@ -71,7 +71,7 @@ License
 MIT License
 
 Copyright (c) 2018 CyberHumi - www.twitch.tv/CyberHumi
-Original version at: https://github.com/
+Original version at: https://github.com/CyberHumi/Chatbot-Scripts
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
