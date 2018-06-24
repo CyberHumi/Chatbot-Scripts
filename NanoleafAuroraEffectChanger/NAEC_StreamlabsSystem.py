@@ -10,7 +10,7 @@ import os
 #---------------------------------------
 #	[Required]	Script Information
 #---------------------------------------
-ScriptName = "NA Effect Changer"
+ScriptName = "Nanoleaf Aurora Effect Changer"
 Website = "https://www.twitch.tv/CyberHumi"
 Creator = "CyberHumi"
 Version = "1.0"
