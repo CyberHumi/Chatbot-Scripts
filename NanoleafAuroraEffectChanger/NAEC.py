@@ -83,7 +83,6 @@ try:
     if matches:
        res = matches.groups()
        apiSocket = res[0].strip()
-       print("API_Socket: " + apiSocket)
     else:
         sys.exit("> no API Socket")
 except:
@@ -102,11 +101,11 @@ def nanoAction(event):
             my_aurora.on = True
             my_aurora.effect = settings[event+"_effect"]
             duration = int(settings[event+"_effectduration"])
-            print("effect: " + my_aurora.effect + ", for " + str(duration) + " seconds")
+            print("change effect to '" + my_aurora.effect + "' for " + str(duration) + " seconds")
             if duration > 0:
                 time.sleep(duration)
                 my_aurora.effect = settings["default_effect"]
-                print("effect: " + my_aurora.effect)
+                print("change effect to '" + my_aurora.effect + "'")
     except:
         pass
 
@@ -129,6 +128,14 @@ def on_open(ws):
     def run(*args):
         print("### open websocket ###")
         ws.send(jsonAuth)
+        print("## connection established to "+ apiSocket)
+        print("")
+        print("+------------------------------------------------+")
+        print("| DO NOT CLOSE THIS COMMAND PROMPT               |")
+        print("+------------------------------------------------+")
+        print("")
+        print("Event log")
+        print("=========")
         while True:
             time.sleep(1)
         ws.close()
