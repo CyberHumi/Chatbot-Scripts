@@ -20,9 +20,9 @@ Usage (Windows)
 
 (4.1) Download and install Python 3.6 or newer for nanoleaf interface:
       https://www.python.org/ftp/python/3.6.0/python-3.6.0-amd64.exe
-(4.2) Download and install nanoleaf interface (C:\Python36\Scripts\pip install nanoleaf --upgrade)
+(4.2) Install nanoleaf interface (C:\Python36\Scripts\pip install nanoleaf --upgrade)
       If necessary upgrade pip (C:\Python36\python -m pip install --upgrade pip)
-(4.3) Download and install websocket-client (C:\Python36\Scripts\pip install websocket-client)
+(4.3) Install websocket-client (C:\Python36\Scripts\pip install websocket-client)
 
 (5) Get a Nanoleaf Aurora auth. token:
     Start -> Python 3.6 -> IDLE (Python 3.6 64-bit)
