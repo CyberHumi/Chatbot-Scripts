@@ -36,6 +36,15 @@ auth = {}
 res = {}
 
 
+print("")
+print("#####################################################")
+print("# Nanoleaf Aurora Effect Changer - Websocket cleint #")
+print("#####################################################")
+print("")
+print("Python version: " + sys.version)
+print("")
+
+
 #---------------------------------------
 #	Get settings
 #---------------------------------------
@@ -107,6 +116,7 @@ def nanoAction(event):
     except:
         pass
 
+print("")
 
 #---------------------------------------
 #	functions
