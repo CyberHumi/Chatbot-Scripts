@@ -1,4 +1,4 @@
-{
+﻿{
     "output_file": "NAEC.json",
     "nanoleaf": {
         "type": "textbox",
@@ -122,5 +122,92 @@
         "label": "Effect duration (seconds)",
         "tooltip": "Raid effect duration in seconds",
         "group": "Raid"
+    },
+    "chat_command": {
+        "type": "textbox",
+        "label": "Command",
+        "value": "!nl",
+        "tooltip": "Chat command",
+        "group": "Chat command"
+    },
+    "chat_command_permission": {
+        "type": "dropdown",
+        "label": "Permission",
+        "value": "Moderator",
+        "tooltip": "Permission",
+		"items": [
+            "Everyone",
+            "Regular",
+            "Subscriber",
+            "Moderator",
+            "Editor",
+            "Caster"
+        ],
+        "group": "Chat command"
+    },
+    "chat_command_onEvent": {
+        "type": "textbox",
+        "label": "Message",
+        "value": "$username changed Nanoleaf Aurora Effect",
+        "tooltip": "Message",
+        "group": "Chat command"
+    },
+    "chat_command_costs": {
+        "type": "numberbox",
+        "label": "Cost",
+        "value": 0,
+        "tooltip": "Cost",
+        "group": "Chat command"
+    },
+    "chat_command_responseNotEnoughPoints": {
+        "type": "textbox",
+        "label": "Not enough points.",
+        "value": "$username, it seems you have not enough $currency for the command. LUL",
+        "tooltip": "Not enough points",
+        "group": "Chat command"
+    },
+    "chat_command_cooldown": {
+        "type": "slider",
+        "value": 5,
+        "min": 0,
+        "max": 60,
+        "ticks": 1,
+        "label": "Cooldown (min)",
+        "tooltip": "Cooldown in minutes",
+        "group": "Chat command"
+    },
+    "chat_command_onCooldown": {
+        "type": "textbox",
+        "label": "Message on cooldown",
+        "value": "$username, the command is still on cooldown for $cd seconds! NotLikeThis",
+        "tooltip": "Message on cooldown",
+        "group": "Chat command"
+    },
+    "chat_command_usercooldown": {
+        "type": "slider",
+        "value": 5,
+        "min": 0,
+        "max": 60,
+        "ticks": 1,
+        "label": "User Cooldown (min)",
+        "tooltip": "User Cooldown in minutes",
+        "group": "Chat command"
+    },
+    "chat_command_onUserCooldown": {
+        "type": "textbox",
+        "label": "Message on user cooldown",
+        "value": "$username, the command is still on cooldown for $cd seconds!",
+        "tooltip": "Message on user cooldown",
+        "group": "Chat command"
+    },
+    "chat_command_default_effect_duration": {
+        "type": "slider",
+        "value": 5,
+        "min": 0,
+        "max": 60,
+        "ticks": 1,
+        "label": "Default effect duration (seconds)",
+        "tooltip": "Command default effect duration in seconds",
+        "group": "Chat command"
     }
 }

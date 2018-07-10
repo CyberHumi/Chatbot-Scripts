@@ -2,8 +2,8 @@
 Info
 #################
 Description: Nanoleaf Aurora Effect Changer for Streamlabs Chatbot
-Created by: CyberHumi - www.twitch.tv/CyberHumi, www.twitter.com/CyberHumiDE
-Version: 1.0
+Created by: CyberHumi - twitch.tv/CyberHumi, twitter.com/CyberHumiDE
+Version: 1.1
 
 
 ################
@@ -20,9 +20,9 @@ Usage (Windows)
 
 (4.1) Download and install Python 3.6 or newer for nanoleaf interface:
       https://www.python.org/ftp/python/3.6.0/python-3.6.0-amd64.exe
-(4.2) Install nanoleaf interface (C:\Python36\Scripts\pip install nanoleaf --upgrade)
+(4.2) Download and install nanoleaf (C:\Python36\Scripts\pip install nanoleaf --upgrade)
       If necessary upgrade pip (C:\Python36\python -m pip install --upgrade pip)
-(4.3) Install websocket-client (C:\Python36\Scripts\pip install websocket-client)
+(4.3) Download and install websocket-client (C:\Python36\Scripts\pip install websocket-client)
 
 (5) Get a Nanoleaf Aurora auth. token:
     Start -> Python 3.6 -> IDLE (Python 3.6 64-bit)
@@ -40,22 +40,20 @@ Usage (Windows)
 	
 	Note the IP and token. You need them later.
 
-(6) Copy the `NA Effect Changer` script you want to use into the folder from the SL Chatbot. You can also use the Import function per button on the top right in the `Scripts` tab.
+(6) Copy the "NA Effect Changer" script you want to use into the folder from the SL Chatbot. You can also use the Import function per button on the top right in the "Scripts" tab.
    (By default it should be `C:\Users\<Username>\AppData\Roaming\Streamlabs\Streamlabs Chatbot\Services\Scripts`)
 
-(7) Go back to the `Scripts` tab in SL Chatbot and rightclick the background and click `Reload Scripts`.
+(7) Go back to the "Scripts" tab in SL Chatbot and rightclick the background and click "Reload Scripts".
     Afterwards the list of installed scripts should appear and you can start configuring those.
 
-(8) Rightclick on the `NA Effect Changer` script and click `Insert API Key`.
+(8) Rightclick on the "NA Effect Changer" script and click "Insert API Key".
 	
-(9) Customize `NA Effect Changer` parameters.
-    Insert Nanoleaf Aurora IP and token.
+(9) Customize "NA Effect Changer" parameters.
+    Insert Nanoleaf Aurora IP and token (from (5)).
 	(Configure the Nanoleaf Aurora effects with your Android or iOS app)
 	Insert effect name and effect duration under the event which should trigger the effect change.
 
-(10) Go back to the `Scripts` tab in Chatbot and rightclick the background and click `Reload Scripts` again.
-
-(11) Execute NAEC_WSclient.bat while Streamlabs Chatbot is running. Do not close the Command Prompt window.
+(10) Go back to the `Scripts` tab in Chatbot and rightclick the background and click "Reload Scripts" again.
 
 
 ###############
@@ -63,6 +61,21 @@ Version History
 ###############
 1.0:
   ~ First Release version
+1.1:
+  ~ add Chat command
+    chatCmd effectName [durationInSeconds]
+	e.g. !naec Daylight
+	     !naec Color Burst 10
+
+
+###############
+FAQ
+###############
+Q: How can I change the effect permanently?
+A: Set the duration to '0'
+
+Q: The Event Log shows 'Error 404: Resource not found!'
+A: Check the effect name. The effect must exist on your Nanoleaf Aurora. The name is case-sensitive!
 
 
 ###############
@@ -71,7 +84,7 @@ License
 MIT License
 
 Copyright (c) 2018 CyberHumi - www.twitch.tv/CyberHumi
-Original version at: https://github.com/CyberHumi/Chatbot-Scripts
+Original version at: https://github.com/
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

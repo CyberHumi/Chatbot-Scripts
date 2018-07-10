@@ -21,7 +21,7 @@ from nanoleaf import Aurora
 ScriptName = "NA Effect Changer"
 Website = "https://www.twitch.tv/CyberHumi"
 Creator = "CyberHumi"
-Version = "1.0"
+Version = "1.1"
 Description = "Nanoleaf Aurora Effect Changer"
 
 
@@ -79,7 +79,8 @@ try:
                "EVENT_HOST",
                "EVENT_RAID",
                "EVENT_DONATION",
-               "EVENT_CHEER"
+               "EVENT_CHEER",
+               "EVENT_NAEC"			# for chat cmd
            ]
        })
        jsonAuth = json.dumps(auth, separators=(',',':'))
@@ -101,18 +102,30 @@ except:
 #---------------------------------------
 #	Nanoleaf Aurora actions
 #---------------------------------------
-def nanoAction(event):
+def nanoAction(event,message):
     try:
-        if settings[event+"_effect"] != '':
-            my_aurora = Aurora(settings["nanoleaf"], settings["nanoleaf_token"])
-            my_aurora.on = True
-            my_aurora.effect = settings[event+"_effect"]
+        host = settings["nanoleaf"]
+        token = settings["nanoleaf_token"]
+        if event == "naec":
+            naec = json.loads(json.loads(message, encoding='utf-8')["data"])
+            effect_new = naec["effect_new"]
+            duration = int(naec["effect_duration"])
+            effect_default = naec["effect_default"]
+            parameter = naec["effect_parameter"]
+        elif settings[event+"_effect"] != '':
+            effect_new = settings[event+"_effect"]
             duration = int(settings[event+"_effectduration"])
-            print("change effect to '" + my_aurora.effect + "' for " + str(duration) + " seconds")
-            if duration > 0:
-                time.sleep(duration)
-                my_aurora.effect = settings["default_effect"]
-                print("change effect to '" + my_aurora.effect + "'")
+            effect_default = settings["default_effect"]
+        else:
+            return
+        my_aurora = Aurora(host, token)
+        my_aurora.on = True
+        my_aurora.effect = effect_new
+        print("change effect to '" + effect_new + "' for " + str(duration) + " seconds")
+        if duration > 0:
+            time.sleep(duration)
+            my_aurora.effect = effect_default
+            print("change effect to '" + effect_default + "'")
     except:
         pass
 
@@ -124,7 +137,7 @@ print("")
 def on_message(ws, message):
     event = json.loads(message)["event"].split("_")[1].lower()
     print("event: " + event)
-    nanoAction(event)
+    nanoAction(event,message)
 
 def on_error(ws, error):
     print(error)
@@ -135,8 +148,7 @@ def on_close(ws):
 def on_open(ws):
     def run(*args):
         print("### open websocket ###")
-        ws.send(jsonAuth)
-        print("## connection established to "+ apiSocket)
+        print("## connect to "+ apiSocket)
         print("")
         print("+------------------------------------------------+")
         print("| DO NOT CLOSE THIS COMMAND PROMPT               |")
@@ -144,6 +156,7 @@ def on_open(ws):
         print("")
         print("Event log")
         print("=========")
+        ws.send(jsonAuth)
         while True:
             time.sleep(1)
         ws.close()
