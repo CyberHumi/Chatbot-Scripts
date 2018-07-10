@@ -38,13 +38,13 @@ def Init():
         settings = {
             "chat_command": "!naec",
             "chat_command_permission": "Moderator",
-            "chat_command_onEvent": "$userid changed Nanoleaf Aurora light effect",
+            "chat_command_onEvent": "$username changed Nanoleaf Aurora light effect",
             "chat_command_costs": 0,
             "chat_command_cooldown": 5,
-            "chat_command_onCooldown": "$userid, the command is still on cooldown for $cd seconds!",
+            "chat_command_onCooldown": "$username, the command is still on cooldown for $cd seconds!",
             "chat_command_usercooldown": 5,
-            "chat_command_onUserCooldown": "$userid the command is still on user cooldown for $cd seconds!",
-            "chat_command_responseNotEnoughPoints": "It seems $userid has not enough $currency to play the game."
+            "chat_command_onUserCooldown": "$username the command is still on user cooldown for $cd seconds!",
+            "chat_command_responseNotEnoughPoints": "It seems $username has not enough $currency to play the game."
         }
     return
 
