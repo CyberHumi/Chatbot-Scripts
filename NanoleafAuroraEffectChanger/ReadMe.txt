@@ -55,6 +55,8 @@ Usage (Windows)
 
 (10) Go back to the `Scripts` tab in Chatbot and rightclick the background and click "Reload Scripts" again.
 
+(11) Execute NAEC_WSclient.bat while Streamlabs Chatbot is running. Do not close the Command Prompt window.
+
 
 ###############
 Version History
