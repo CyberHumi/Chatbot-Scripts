@@ -20,7 +20,7 @@ Usage (Windows)
 
 (4.1) Download and install Python 3.6 or newer for nanoleaf interface:
       https://www.python.org/ftp/python/3.6.0/python-3.6.0-amd64.exe
-(4.2) Download and install nanoleaf (C:\Python36\Scripts\pip install nanoleaf --upgrade)
+(4.2) Download and install nanoleaf interface (C:\Python36\Scripts\pip install nanoleaf --upgrade)
       If necessary upgrade pip (C:\Python36\python -m pip install --upgrade pip)
 (4.3) Download and install websocket-client (C:\Python36\Scripts\pip install websocket-client)
 
@@ -49,7 +49,7 @@ Usage (Windows)
 (8) Rightclick on the "NA Effect Changer" script and click "Insert API Key".
 	
 (9) Customize "NA Effect Changer" parameters.
-    Insert Nanoleaf Aurora IP and token (from (5)).
+    Insert Nanoleaf Aurora IP and token from step 5.
 	(Configure the Nanoleaf Aurora effects with your Android or iOS app)
 	Insert effect name and effect duration under the event which should trigger the effect change.
 
