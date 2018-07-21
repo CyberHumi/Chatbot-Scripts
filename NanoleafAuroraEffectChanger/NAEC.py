@@ -42,6 +42,7 @@ print("# Nanoleaf Aurora Effect Changer - Websocket cleint #")
 print("#####################################################")
 print("")
 print("Python version: " + sys.version)
+print("NAEC version: " + Version)
 print("")
 
 
@@ -130,6 +131,7 @@ def nanoAction(event,message):
         pass
 
 print("")
+
 
 #---------------------------------------
 #	functions
