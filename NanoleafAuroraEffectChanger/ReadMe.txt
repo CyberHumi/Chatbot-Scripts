@@ -2,7 +2,7 @@
 Info
 #################
 Description: Nanoleaf Aurora Effect Changer for Streamlabs Chatbot
-Created by: CyberHumi - twitch.tv/CyberHumi, twitter.com/CyberHumiDE
+Created by: CyberHumi - www.twitch.tv/CyberHumi, www.twitter.com/CyberHumiDE
 Version: 1.1
 
 
@@ -73,6 +73,10 @@ Version History
 ###############
 FAQ
 ###############
+Q: Why do I need Python version 2.7 and version 3.6?
+A: Streamlabs Chatbot is only compatible with Python 2.7, no other version is compatible with the IronPython which is used by the chatbot.
+   The nanoleaf interface has been developed under Python 3. Unfortunately the interface is not backward compatible to Python version 2.7.
+
 Q: How can I change the effect permanently?
 A: Set the duration to '0'
 
