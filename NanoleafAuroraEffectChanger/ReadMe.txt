@@ -54,8 +54,9 @@ Usage (Windows)
 	Insert effect name and effect duration under the event which should trigger the effect change.
 
 (10) Go back to the `Scripts` tab in Chatbot and rightclick the background and click "Reload Scripts" again.
+     This generates the file NAEC_SLCB_CLIENT.bat. You can find it in the script folder.
 
-(11) Execute NAEC_WSclient.bat while Streamlabs Chatbot is running. Do not close the Command Prompt window.
+(11) Execute NAEC_SLCB_CLIENT.bat while Streamlabs Chatbot is running. Do not close the Command Prompt window.
 
 
 ###############

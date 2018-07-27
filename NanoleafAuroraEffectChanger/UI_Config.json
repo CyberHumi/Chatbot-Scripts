@@ -14,6 +14,13 @@
         "tooltip": "Nanoleaf Aurora connection token",
         "group": ""
     },
+    "python3": {
+        "type": "textbox",
+        "value": "",
+        "label": "Python 3 Directory",
+        "tooltip": "Python 3 Directory",
+        "group": ""
+    },
     "default_effect": {
         "type": "textbox",
         "label": "Effect name",
