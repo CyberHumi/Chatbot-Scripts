@@ -38,7 +38,7 @@ res = {}
 
 print("")
 print("#####################################################")
-print("# Nanoleaf Aurora Effect Changer - Websocket cleint #")
+print("# Nanoleaf Aurora Effect Changer - Websocket client #")
 print("#####################################################")
 print("")
 print("Python version: " + sys.version)
