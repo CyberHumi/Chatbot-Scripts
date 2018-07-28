@@ -71,7 +71,7 @@ def Execute(data):
         "effect_parameter": ""
     }
 
-    if data.IsChatMessage() and data.GetParam(0).lower() == settings["chat_command"] and Parent.HasPermission(data.User, settings["chat_command_permission"], ""):
+    if data.IsChatMessage() and data.GetParam(0) == settings["chat_command"] and Parent.HasPermission(data.User, settings["chat_command_permission"], ""):
         tempResponseString = ""
         userId = data.User			
         username = data.UserName
@@ -81,9 +81,10 @@ def Execute(data):
         for x in range(1, data.GetParamCount()):
             if x == data.GetParamCount()-1:
                 try:
-                    naecEvent["effect_duration"] = int(data.GetParam(x))
+                    int(data.GetParam(x))
+                    naecEvent["effect_duration"] = data.GetParam(x)
                 except:
-                    pass
+                    effect_new += data.GetParam(x) + " "
             else:
                 effect_new += data.GetParam(x) + " "
         effect_new = effect_new.strip()
