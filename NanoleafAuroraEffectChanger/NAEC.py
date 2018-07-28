@@ -107,7 +107,9 @@ def nanoAction(event,message):
     try:
         host = settings["nanoleaf"]
         token = settings["nanoleaf_token"]
-        if event == "naec":
+        if event == "connected":
+            print("       > waiting for events ...")
+        elif event == "naec":
             naec = json.loads(json.loads(message, encoding='utf-8')["data"])
             effect_new = naec["effect_new"]
             duration = int(naec["effect_duration"])
@@ -122,11 +124,11 @@ def nanoAction(event,message):
         my_aurora = Aurora(host, token)
         my_aurora.on = True
         my_aurora.effect = effect_new
-        print("change effect to '" + effect_new + "' for " + str(duration) + " seconds")
+        print("       > change effect to '" + effect_new + "' for " + str(duration) + " seconds")
         if duration > 0:
             time.sleep(duration)
             my_aurora.effect = effect_default
-            print("change effect to '" + effect_default + "'")
+            print("       > change effect to '" + effect_default + "'")
     except:
         pass
 
