@@ -21,7 +21,7 @@ from nanoleaf import Aurora
 ScriptName = "NA Effect Changer"
 Website = "https://www.twitch.tv/CyberHumi"
 Creator = "CyberHumi"
-Version = "1.1"
+Version = "1.2"
 Description = "Nanoleaf Aurora Effect Changer"
 
 
@@ -52,10 +52,10 @@ print("")
 try:
     with codecs.open(os.path.join(path, settingsFile), encoding='utf-8-sig', mode='r') as file:
         settings = json.load(file, encoding='utf-8-sig')
-        print ("read settings file: ", path + "\\" + settingsFile)
+        print ("read settings: ", path + "\\" + settingsFile)
 except:
     print("Unexpected error:", sys.exc_info())
-    sys.exit("cannot read settings file")
+    sys.exit("cannot read settings")
     pass
 
 	
@@ -65,7 +65,7 @@ except:
 try:
     with codecs.open(os.path.join(path, apiFile), encoding='utf-8-sig', mode='r') as file:
         js = file.readlines()
-    print ("read API file: ", path + "\\" + apiFile)
+    print ("read API key file: ", path + "\\" + apiFile)
     parts = js[0].split(";")
     matcher_rex = re.compile(r'^.+=\s+"(?P<var>\w+)"')
     matches = matcher_rex.match(parts[0].strip())
@@ -75,12 +75,16 @@ try:
        auth.update({
            "api_key": apiKey,
            "events": [
-               "EVENT_SUB",
-               "EVENT_FOLLOW",
-               "EVENT_HOST",
-               "EVENT_RAID",
-               "EVENT_DONATION",
-               "EVENT_CHEER",
+               "EVENT_SUB",         # Twitch sub
+               "EVENT_MX_SUB",      # Mixer sub
+               "EVENT_YT_SUB",      # YouTube sub
+               "EVENT_FOLLOW",      # Twitch follow
+               "EVENT_MX_FOLLOW",   # Mixer follow
+               "EVENT_HOST",        # Twitch host
+               "EVENT_MX_HOST",     # Mixer host
+               "EVENT_RAID",        # Twitch raid
+               "EVENT_DONATION",    # Mixer/Twitch/YouTube donation
+               "EVENT_CHEER",       # Twitch cheer
                "EVENT_NAEC"			# for chat cmd
            ]
        })
@@ -140,6 +144,8 @@ print("")
 #---------------------------------------
 def on_message(ws, message):
     event = json.loads(message)["event"].split("_")[1].lower()
+    if event == 'YT' or event == 'MX':
+        event = json.loads(message)["event"].split("_")[2].lower();
     print("event: " + event)
     nanoAction(event,message)
 

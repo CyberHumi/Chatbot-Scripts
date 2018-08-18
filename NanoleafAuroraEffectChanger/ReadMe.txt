@@ -3,7 +3,7 @@ Info
 #################
 Description: Nanoleaf Aurora Effect Changer for Streamlabs Chatbot
 Created by: CyberHumi - www.twitch.tv/CyberHumi, www.twitter.com/CyberHumiDE
-Version: 1.1
+Version: 1.2
 
 
 ################
@@ -50,6 +50,7 @@ Usage (Windows)
 	
 (9) Customize "NA Effect Changer" parameters.
     Insert Nanoleaf Aurora IP and token from step 5.
+	Insert Python3 installation directory. (By default it should be `C:\Python36`)
 	(Configure the Nanoleaf Aurora effects with your Android or iOS app)
 	Insert effect name and effect duration under the event which should trigger the effect change.
 
@@ -69,6 +70,8 @@ Version History
     chatCmd effectName [durationInSeconds]
 	e.g. !naec Daylight
 	     !naec Color Burst 10
+1.2:
+  ~ add YT sub, MX sub, MX follow and MX host support
 
 
 ###############
@@ -83,6 +86,10 @@ A: Set the duration to '0'
 
 Q: The Event Log shows 'Error 404: Resource not found!'
 A: Check the effect name. The effect must exist on your Nanoleaf Aurora. The name is case-sensitive!
+   Doesn't work with "Basic" scenes.
+
+Q: On step 5 I got the following message: 'OSError: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions'
+A: Check your firewall settings. The communication to the Nanoleafs occur via port 16021.
 
 
 ###############

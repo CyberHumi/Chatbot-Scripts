@@ -15,7 +15,7 @@ import codecs
 ScriptName = "NA Effect Changer"
 Website = "https://www.twitch.tv/CyberHumi"
 Creator = "CyberHumi"
-Version = "1.1"
+Version = "1.2"
 Description = "Nanoleaf Aurora Effect Changer"
 
 #---------------------------------------
