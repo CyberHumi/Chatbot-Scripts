@@ -68,8 +68,8 @@ Version History
 1.1:
   ~ add Chat command
     chatCmd effectName [durationInSeconds]
-	e.g. !naec Daylight
-	     !naec Color Burst 10
+	e.g. !nl Daylight
+	     !nl Color Burst 10
 1.2:
   ~ add YT sub, MX sub, MX follow and MX host support
 
