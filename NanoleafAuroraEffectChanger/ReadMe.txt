@@ -91,6 +91,11 @@ A: Check the effect name. The effect must exist on your Nanoleaf Aurora. The nam
 Q: On step 5 I got the following message: 'OSError: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions'
 A: Check your firewall settings. The communication to the Nanoleafs occur via port 16021.
 
+Q: I get the following message:
+   "HTTPConnectionPool(host='192.168.x.y', port=16021): Max retries exceeded with url: /api/v1//state 
+   (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000017EB352A128>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))"
+A: The connection token is wrong or missing.
+
 
 ###############
 License
