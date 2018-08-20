@@ -144,7 +144,7 @@ print("")
 #---------------------------------------
 def on_message(ws, message):
     event = json.loads(message)["event"].split("_")[1].lower()
-    if event == 'YT' or event == 'MX':
+    if event == 'yt' or event == 'mx':
         event = json.loads(message)["event"].split("_")[2].lower();
     print("event: " + event)
     nanoAction(event,message)
