@@ -85,7 +85,7 @@ try:
                "EVENT_RAID",        # Twitch raid
                "EVENT_DONATION",    # Mixer/Twitch/YouTube donation
                "EVENT_CHEER",       # Twitch cheer
-               "EVENT_NAEC"			# for chat cmd
+               "EVENT_NAEC"         # chat command
            ]
        })
        jsonAuth = json.dumps(auth, separators=(',',':'))
