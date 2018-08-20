@@ -38,7 +38,7 @@ def Init():
     except:
         settings = {
             "python3": "C:\\Python36",
-            "chat_command": "!naec",
+            "chat_command": "!nl",
             "chat_command_permission": "Moderator",
             "chat_command_onEvent": "$username changed Nanoleaf Aurora light effect",
             "chat_command_costs": 0,
@@ -46,7 +46,8 @@ def Init():
             "chat_command_onCooldown": "$username, the command is still on cooldown for $cd seconds!",
             "chat_command_usercooldown": 5,
             "chat_command_onUserCooldown": "$username the command is still on user cooldown for $cd seconds!",
-            "chat_command_responseNotEnoughPoints": "It seems $username has not enough $currency to play the game."
+            "chat_command_responseNotEnoughPoints": "It seems $username has not enough $currency.",
+            "chat_command_default_effect_duration": 5
         }
 
     try:
