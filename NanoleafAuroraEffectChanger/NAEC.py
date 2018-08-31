@@ -128,13 +128,13 @@ def nanoAction(event,message):
                 data = json.loads(json.loads(message)["data"])
                 viewers = data["viewers"]
                 print("       > " + viewers + " viewers")
-                if( viewers < int(naec["host_minviewers"]) ):
+                if(  int(viewers) < int(naec["host_minviewers"]) ):
                     return
             elif( event == "cheer" ):
                 data = json.loads(json.loads(message)["data"])
                 bits = data["bits"]
                 print("       > " + viewers + " bits")
-                if( viewers < int(naec["cheer_minbits"]) ):
+                if(  int(viewers) < int(naec["cheer_minbits"]) ):
                     return
         else:
             return
