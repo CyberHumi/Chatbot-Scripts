@@ -9,6 +9,8 @@ Version: 1.2
 ################
 Usage (Windows)
 ################
+https://github.com/CyberHumi/Chatbot-Scripts/wiki/Installation
+
 (1) Download the current Streamlabs Chatbot version: https://streamlabs.com/chatbot
 
 (2) Download and install Python 2.7.13 since that's needed for Chatbot and the Script features: 
