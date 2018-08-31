@@ -96,6 +96,13 @@
         "tooltip": "Cheer effect duration in seconds",
         "group": "Cheer"
     },
+    "cheer_minbits": {
+        "type": "numberbox",
+        "label": "min. bits",
+        "value": 0,
+        "tooltip": "min. bits",
+        "group": "Cheer"
+    },
     "host_effect": {
         "type": "textbox",
         "label": "Effect name",
@@ -113,22 +120,12 @@
         "tooltip": "Host effect duration in seconds",
         "group": "Host"
     },
-    "raid_effect": {
-        "type": "textbox",
-        "label": "Effect name",
-        "value": "",
-        "tooltip": "Nanoleaf Aurora effect",
-        "group": "Raid"
-    },
-    "raid_effectduration": {
-        "type": "slider",
-        "value": 5,
-        "min": 0,
-        "max": 60,
-        "ticks": 1,
-        "label": "Effect duration (seconds)",
-        "tooltip": "Raid effect duration in seconds",
-        "group": "Raid"
+    "host_minviewers": {
+        "type": "numberbox",
+        "label": "min. viewers",
+        "value": 0,
+        "tooltip": "min. viewers",
+        "group": "Host"
     },
     "chat_command": {
         "type": "textbox",
@@ -142,7 +139,7 @@
         "label": "Permission",
         "value": "Moderator",
         "tooltip": "Permission",
-		"items": [
+        "items": [
             "Everyone",
             "Regular",
             "Subscriber",
@@ -215,6 +212,16 @@
         "ticks": 1,
         "label": "Default effect duration (seconds)",
         "tooltip": "Command default effect duration in seconds",
+        "group": "Chat command"
+    },
+    "chat_command_max_effect_duration": {
+        "type": "slider",
+        "value": 5,
+        "min": 0,
+        "max": 60,
+        "ticks": 1,
+        "label": "Max. effect duration (seconds)",
+        "tooltip": "Command max. effect duration in seconds",
         "group": "Chat command"
     }
 }

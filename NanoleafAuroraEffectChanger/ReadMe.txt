@@ -3,7 +3,7 @@ Info
 #################
 Description: Nanoleaf Aurora Effect Changer for Streamlabs Chatbot
 Created by: CyberHumi - www.twitch.tv/CyberHumi, www.twitter.com/CyberHumiDE
-Version: 1.2
+Version: 1.3
 
 
 ################
@@ -28,33 +28,33 @@ https://github.com/CyberHumi/Chatbot-Scripts/wiki/Installation
 
 (5) Get a Nanoleaf Aurora auth. token:
     Start -> Python 3.6 -> IDLE (Python 3.6 64-bit)
-	
-	>>> from nanoleaf import setup
-	>>> ipAddressList = setup.find_auroras()
-	>>> print(ipAddressList)
-	['192.168.x.y']
-	
-	Press and hold the Nanoleaf Aurora power button for 5-7 seconds first! (Light will begin flashing)
-	
-	>>> token = setup.generate_auth_token("192.168.x.y")
-	>>> print(token)
-	nnnnnnnnnnnnnnnnnnnnnnnnn
-	
-	Note the IP and token. You need them later.
 
-(6) Copy the "NA Effect Changer" script you want to use into the folder from the SL Chatbot. You can also use the Import function per button on the top right in the "Scripts" tab.
+    >>> from nanoleaf import setup
+    >>> ipAddressList = setup.find_auroras()
+    >>> print(ipAddressList)
+    ['192.168.x.y'] 
+
+    Press and hold the Nanoleaf Aurora power button for 5-7 seconds first! (Light will begin flashing)
+
+    >>> token = setup.generate_auth_token("192.168.x.y")
+    >>> print(token)
+    nnnnnnnnnnnnnnnnnnnnnnnnn
+
+    Note the IP and token. You need them later.
+
+(6) Import the "NA Effect Changer" script into the SL Chatbot. You can use the Import function per button on the top right in the "Scripts" tab.
    (By default it should be `C:\Users\<Username>\AppData\Roaming\Streamlabs\Streamlabs Chatbot\Services\Scripts`)
 
 (7) Go back to the "Scripts" tab in SL Chatbot and rightclick the background and click "Reload Scripts".
     Afterwards the list of installed scripts should appear and you can start configuring those.
 
 (8) Rightclick on the "NA Effect Changer" script and click "Insert API Key".
-	
+
 (9) Customize "NA Effect Changer" parameters.
     Insert Nanoleaf Aurora IP and token from step 5.
-	Insert Python3 installation directory. (By default it should be `C:\Python36`)
-	(Configure the Nanoleaf Aurora effects with your Android or iOS app)
-	Insert effect name and effect duration under the event which should trigger the effect change.
+    Insert Python3 installation directory. (By default it should be `C:\Python36`)
+    (Configure the Nanoleaf Aurora effects with your Android or iOS app)
+    Insert effect name and effect duration under the event which should trigger the effect change.
 
 (10) Go back to the `Scripts` tab in Chatbot and rightclick the background and click "Reload Scripts" again.
      This generates the file NAEC_SLCB_CLIENT.bat. You can find it in the script folder.
@@ -70,10 +70,18 @@ Version History
 1.1:
   ~ add Chat command
     chatCmd effectName [durationInSeconds]
-	e.g. !nl Flames
-	     !nl Color Burst 10
+    e.g. !nl Flames
+         !nl Color Burst 10
 1.2:
   ~ add YT sub, MX sub, MX follow and MX host support
+1.2.1:
+  ~ fix encoding issue
+1.3:
+  ~ add max. duration for chat command
+  ~ add min. viewers for host event
+  ~ add min. bits for cheer event
+  ~ add automatic settings reload after update
+  ~ remove Raid from UI (is not yet implementet in SLCB)
 
 
 ###############
@@ -97,6 +105,10 @@ Q: I get the following message:
    "HTTPConnectionPool(host='192.168.x.y', port=16021): Max retries exceeded with url: /api/v1//state 
    (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000017EB352A128>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))"
 A: The connection token is wrong or missing.
+
+Q: required if you got a "not supported between instances of 'float' and 'NoneType'" message:
+A: There is currently (version 0.51.0) a bug in the python websocket-client package (https://github.com/websocket-client/websocket-client/issues/466).
+   Downgrade the websocket-client (C:\Python36\Scripts\pip install -Iv websocket-client==0.48.0)
 
 
 ###############

@@ -1,5 +1,5 @@
 #---------------------------------------
-#	Import Libraries
+#   Import Libraries
 #---------------------------------------
 import clr
 clr.AddReference("IronPython.SQLite.dll")
@@ -10,25 +10,25 @@ import codecs
 
 
 #---------------------------------------
-#	[Required]	Script Information
+#   [Required]	Script Information
 #---------------------------------------
 ScriptName = "NA Effect Changer"
 Website = "https://www.twitch.tv/CyberHumi"
 Creator = "CyberHumi"
-Version = "1.2"
+Version = "1.3"
 Description = "Nanoleaf Aurora Effect Changer"
 
 #---------------------------------------
-#	Set Variables
+#   Set Variables
 #---------------------------------------
 configFile = "NAEC.json"
 batFile = "NAEC_SLCB_CLIENT.bat"
 settings = {}
 
 #---------------------------------------
-#   [Required] Initialize Data / Load Only
+#   read config file
 #---------------------------------------
-def Init():
+def readConfigFile():
     global settings, configFile
 
     path = os.path.dirname(__file__)
@@ -47,9 +47,16 @@ def Init():
             "chat_command_usercooldown": 5,
             "chat_command_onUserCooldown": "$username the command is still on user cooldown for $cd seconds!",
             "chat_command_responseNotEnoughPoints": "It seems $username has not enough $currency.",
-            "chat_command_default_effect_duration": 5
+            "chat_command_default_effect_duration": 5,
+            "chat_command_max_effect_duration": 5
         }
 
+#---------------------------------------
+#   [Required] Initialize Data / Load Only
+#---------------------------------------
+def Init():
+    global settings
+    readConfigFile()
     try:
         with open(os.path.join(path, batFile), "w") as bat:
              bat.write('@echo off\n')
@@ -74,7 +81,7 @@ def Execute(data):
 
     if data.IsChatMessage() and data.GetParam(0) == settings["chat_command"] and Parent.HasPermission(data.User, settings["chat_command_permission"], ""):
         tempResponseString = ""
-        userId = data.User			
+        userId = data.User
         username = data.UserName
         cd = ""
 
@@ -83,7 +90,10 @@ def Execute(data):
             if x == data.GetParamCount()-1:
                 try:
                     int(data.GetParam(x))
-                    naecEvent["effect_duration"] = data.GetParam(x)
+                    if( int(data.GetParam(x)) < int(settings["chat_command_max_effect_duration"]) ):
+                        naecEvent["effect_duration"] = data.GetParam(x)
+                    else:
+                        naecEvent["effect_duration"] = settings["chat_command_max_effect_duration"]
                 except:
                     effect_new += data.GetParam(x) + " "
             else:
@@ -91,7 +101,7 @@ def Execute(data):
         effect_new = effect_new.strip()
         if effect_new != "":
             naecEvent["effect_new"] = effect_new
-			   
+
         # Check if the User has enough points
         if settings["chat_command_costs"] > Parent.GetPoints(userId):
             tempResponseString = settings["chat_command_responseNotEnoughPoints"]
@@ -109,7 +119,7 @@ def Execute(data):
             Parent.RemovePoints(userId, username, settings["chat_command_costs"])
 
             # send effect change request
-            Parent.BroadcastWsEvent("EVENT_NAEC", json.dumps(naecEvent, encoding='utf-8'))
+            Parent.BroadcastWsEvent("EVENT_NAEC", json.dumps(naecEvent, encoding='utf-8-sig'))
             tempResponseString = settings["chat_command_onEvent"]
 
             Parent.AddUserCooldown(ScriptName, settings["chat_command"], userId, settings["chat_command_usercooldown"])
@@ -122,3 +132,21 @@ def Execute(data):
 
 def Tick():
     return
+
+#---------------------------
+#   [Optional] Reload Settings (Called when a user clicks the Save Settings button in the Chatbot UI)
+#---------------------------
+def ReloadSettings(jsonData):
+    readConfigFile()
+    Parent.BroadcastWsEvent("EVENT_NAECUPDATE", "")
+    return
+
+#---------------------------
+#   [Optional] ScriptToggled (Notifies you when a user disables your script or enables it)
+#---------------------------
+def ScriptToggled(state):
+    if( state ):
+        readConfigFile()
+        Parent.BroadcastWsEvent("EVENT_NAECUPDATE", "")
+    return
+
