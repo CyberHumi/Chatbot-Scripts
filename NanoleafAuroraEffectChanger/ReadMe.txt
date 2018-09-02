@@ -83,7 +83,7 @@ Version History
   ~ add automatic settings reload after update
   ~ remove Raid from UI (is not yet implementet in SLCB)
 1.3.1:
-  ~ fix chat command with 0 costs
+  ~ fix chat command with 0 cost
 
 
 ###############
