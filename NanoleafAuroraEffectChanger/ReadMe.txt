@@ -3,7 +3,7 @@ Info
 #################
 Description: Nanoleaf Aurora Effect Changer for Streamlabs Chatbot
 Created by: CyberHumi - www.twitch.tv/CyberHumi, www.twitter.com/CyberHumiDE
-Version: 1.3
+Version: 1.3.1
 
 
 ################
@@ -82,6 +82,8 @@ Version History
   ~ add min. bits for cheer event
   ~ add automatic settings reload after update
   ~ remove Raid from UI (is not yet implementet in SLCB)
+1.3.1:
+  ~ fix chat command with 0 costs
 
 
 ###############

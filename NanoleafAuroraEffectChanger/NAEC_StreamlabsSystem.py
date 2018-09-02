@@ -15,7 +15,7 @@ import codecs
 ScriptName = "NA Effect Changer"
 Website = "https://www.twitch.tv/CyberHumi"
 Creator = "CyberHumi"
-Version = "1.3"
+Version = "1.3.1"
 Description = "Nanoleaf Aurora Effect Changer"
 
 #---------------------------------------
@@ -116,7 +116,8 @@ def Execute(data):
                 tempResponseString = settings["chat_command_onUserCooldown"]
             tempResponseString = tempResponseString.replace("$cd", str(cd))
         else:
-            Parent.RemovePoints(userId, username, settings["chat_command_costs"])
+            if int(settings["chat_command_costs"]) > 0:
+                Parent.RemovePoints(userId, username, settings["chat_command_costs"])
 
             # send effect change request
             Parent.BroadcastWsEvent("EVENT_NAEC", json.dumps(naecEvent, encoding='utf-8-sig'))
