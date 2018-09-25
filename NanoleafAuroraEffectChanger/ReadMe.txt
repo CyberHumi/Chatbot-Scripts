@@ -110,10 +110,6 @@ Q: I get the following message:
    (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000017EB352A128>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))"
 A: The connection token is wrong or missing.
 
-Q: required if you got a "not supported between instances of 'float' and 'NoneType'" message:
-A: There is currently (version 0.51.0) a bug in the python websocket-client package (https://github.com/websocket-client/websocket-client/issues/466).
-   Downgrade the websocket-client (C:\Python36\Scripts\pip install -Iv websocket-client==0.48.0)
-
 
 ###############
 License
