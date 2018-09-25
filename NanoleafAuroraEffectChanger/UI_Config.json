@@ -1,25 +1,25 @@
-﻿{
+{
     "output_file": "NAEC.json",
     "nanoleaf": {
         "type": "textbox",
         "value": "Nanoleaf-Aurora",
         "label": "Nanoleaf Aurora hostname or IP",
         "tooltip": "hostname or IP address",
-        "group": ""
+        "group": "Nanoleaf Aurora"
     },
     "nanoleaf_token": {
         "type": "textbox",
         "value": "",
         "label": "Nanoleaf Aurora connection token",
         "tooltip": "Nanoleaf Aurora connection token",
-        "group": ""
+        "group": "Nanoleaf Aurora"
     },
     "python3": {
         "type": "textbox",
         "value": "",
         "label": "Python 3 Directory",
         "tooltip": "Python 3 Directory",
-        "group": ""
+        "group": "Nanoleaf Aurora"
     },
     "default_effect": {
         "type": "textbox",

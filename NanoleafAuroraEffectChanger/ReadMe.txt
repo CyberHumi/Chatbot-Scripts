@@ -13,11 +13,11 @@ https://github.com/CyberHumi/Chatbot-Scripts/wiki/Installation
 
 (1) Download the current Streamlabs Chatbot version: https://streamlabs.com/chatbot
 
-(2) Download and install Python 2.7.13 since that's needed for Chatbot and the Script features: 
-    https://www.python.org/ftp/python/2.7.13/python-2.7.13.msi 
+(2) Download and install Python 2.7.13 since that's needed for Chatbot and the Script features:
+    https://www.python.org/ftp/python/2.7.13/python-2.7.13.msi
 
 (3) Open the Streamlabs Chatbot and go to the "Scripts" tab in the left sidebar.
-    Click on the cogwheel in the top right and set your Python directory to the `Lib` folder where you installed Python 
+    Click on the cogwheel in the top right and set your Python directory to the `Lib` folder where you installed Python
     (By default it should be `C:\Python27\Lib`).
 
 (4.1) Download and install Python 3.6 or newer for nanoleaf interface:
@@ -32,7 +32,7 @@ https://github.com/CyberHumi/Chatbot-Scripts/wiki/Installation
     >>> from nanoleaf import setup
     >>> ipAddressList = setup.find_auroras()
     >>> print(ipAddressList)
-    ['192.168.x.y'] 
+    ['192.168.x.y']
 
     Press and hold the Nanoleaf Aurora power button for 5-7 seconds first! (Light will begin flashing)
 
@@ -84,6 +84,8 @@ Version History
   ~ remove Raid from UI (is not yet implementet in SLCB)
 1.3.1:
   ~ fix chat command with 0 cost
+1.4:
+  ~ hoxfix, prevents deadlock between NAEC.py and SLCB by using msg queue and a seperate thread for Nanoleaf actions
 
 
 ###############
@@ -104,7 +106,7 @@ Q: On step 5 I got the following message: 'OSError: [WinError 10013] An attempt 
 A: Check your firewall settings. The communication to the Nanoleafs occur via port 16021.
 
 Q: I get the following message:
-   "HTTPConnectionPool(host='192.168.x.y', port=16021): Max retries exceeded with url: /api/v1//state 
+   "HTTPConnectionPool(host='192.168.x.y', port=16021): Max retries exceeded with url: /api/v1//state
    (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000017EB352A128>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))"
 A: The connection token is wrong or missing.
 

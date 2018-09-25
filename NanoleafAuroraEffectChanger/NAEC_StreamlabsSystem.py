@@ -15,7 +15,7 @@ import codecs
 ScriptName = "NA Effect Changer"
 Website = "https://www.twitch.tv/CyberHumi"
 Creator = "CyberHumi"
-Version = "1.3.1"
+Version = "1.4"
 Description = "Nanoleaf Aurora Effect Changer"
 
 #---------------------------------------
@@ -37,7 +37,7 @@ def readConfigFile():
             settings = json.load(file, encoding='utf-8-sig')
     except:
         settings = {
-            "python3": "C:\\Python36",
+            "python3": "C:\\Python37",
             "chat_command": "!nl",
             "chat_command_permission": "Moderator",
             "chat_command_onEvent": "$username changed Nanoleaf Aurora light effect",
@@ -106,7 +106,7 @@ def Execute(data):
         if settings["chat_command_costs"] > Parent.GetPoints(userId):
             tempResponseString = settings["chat_command_responseNotEnoughPoints"]
             tempResponseString = tempResponseString.replace("$currency", str(Parent.GetCurrencyName()))
-        # Check if there is a cooldown active 
+        # Check if there is a cooldown active
         elif settings["chat_command_usercooldown"] and (Parent.IsOnCooldown(ScriptName, settings["chat_command"]) or Parent.IsOnUserCooldown(ScriptName, settings["chat_command"], userId)):
             if Parent.GetCooldownDuration(ScriptName, settings["chat_command"]) > Parent.GetUserCooldownDuration(ScriptName, settings["chat_command"], userId):
                 cd = Parent.GetCooldownDuration(ScriptName, settings["chat_command"])
@@ -150,4 +150,3 @@ def ScriptToggled(state):
         readConfigFile()
         Parent.BroadcastWsEvent("EVENT_NAECUPDATE", "")
     return
-

@@ -7,11 +7,13 @@ import json
 import codecs
 import re
 import websocket
+import threading
 try:
     import thread
 except ImportError:
     import _thread as thread
 import time
+import queue
 from nanoleaf import Aurora
 
 
@@ -21,7 +23,7 @@ from nanoleaf import Aurora
 ScriptName = "NA Effect Changer"
 Website = "https://www.twitch.tv/CyberHumi"
 Creator = "CyberHumi"
-Version = "1.3"
+Version = "1.4"
 Description = "Nanoleaf Aurora Effect Changer"
 
 
@@ -37,6 +39,10 @@ res = {}
 wsServer = ""
 jsonAuth = ""
 space = ""
+
+# message queue
+BUF_SIZE = 200
+q = queue.Queue(BUF_SIZE)
 
 
 #---------------------------------------
@@ -103,64 +109,16 @@ def readAPIkey():
 
 
 #---------------------------------------
-#   Nanoleaf Aurora actions
-#---------------------------------------
-def nanoAction(event,message):
-    global settings
-    try:
-        host = settings["nanoleaf"]
-        token = settings["nanoleaf_token"]
-        if event == "connected":
-            print("       > waiting for events ...")
-        elif event == "naec":
-            naec = json.loads(json.loads(message, encoding='utf-8-sig')["data"])
-            effect_new = naec["effect_new"]
-            duration = int(naec["effect_duration"])
-            effect_default = naec["effect_default"]
-            parameter = naec["effect_parameter"]
-        elif event == "naecupdate":
-            readSettings()
-        elif settings[event+"_effect"] != '':
-            effect_new = settings[event+"_effect"]
-            duration = int(settings[event+"_effectduration"])
-            effect_default = settings["default_effect"]
-            if( event == "host"):
-                data = json.loads(json.loads(message)["data"])
-                print("       > " + data["display_name"] + ": "+ data["viewers"] + " viewers")
-                if(  int(data["viewers"]) < int(naec["host_minviewers"]) ):
-                    return
-            elif( event == "cheer" ):
-                data = json.loads(json.loads(message)["data"])
-                print("       > " + data["display_name"] + ": "+ data["bits"] + " bits")
-                if(  int(data["bits"]) < int(naec["cheer_minbits"]) ):
-                    return
-        else:
-            return
-        my_aurora = Aurora(host, token)
-        my_aurora.on = True
-        my_aurora.effect = effect_new
-        if duration>0:
-            durationtext = " for " + str(duration) + " seconds"
-        else:
-            durationtext = ""
-        print("       > change effect to '" + effect_new + "'" + durationtext)
-        if duration > 0:
-            time.sleep(duration)
-            my_aurora.effect = effect_default
-            print("       > change effect to '" + effect_default + "'")
-    except:
-        pass
-
-
-#---------------------------------------
 #   functions
 #---------------------------------------
 def on_message(ws, message):
-    event = json.loads(message)["event"].split("_")[1].lower()
-    if event == 'yt' or event == 'mx':
-        event = json.loads(message)["event"].split("_")[2].lower();
-    print("event: " + event)
-    nanoAction(event,message)
+    part = 1
+    # for Mixer and YouTube events
+    if len(json.loads(message)["event"].split("_")) == 3:
+        part = 2
+    event = json.loads(message)["event"].split("_")[part].lower()
+    q.put(message);
+    print("event: > %s (%s in queue)" % (event,q.qsize()))
 
 def on_error(ws, error):
     print(error)
@@ -192,6 +150,71 @@ def on_open(ws):
     thread.start_new_thread(run, ())
 
 
+class NanoThread(threading.Thread):
+    #---------------------------------------
+    #   Nanoleaf Aurora actions
+    #---------------------------------------
+    def nanoAction(message):
+        global settings
+        print("       < %s in queue" % q.qsize())
+        part = 1
+        # for Mixer and YouTube events
+        if len(json.loads(message)["event"].split("_")) == 3:
+            part = 2
+        event = json.loads(message)["event"].split("_")[part].lower()
+        try:
+            host = settings["nanoleaf"]
+            token = settings["nanoleaf_token"]
+            if event == "connected":
+                print("       < waiting for events ...")
+            elif event == "naec":
+                naec = json.loads(json.loads(message, encoding='utf-8-sig')["data"])
+                effect_new = naec["effect_new"]
+                duration = int(naec["effect_duration"])
+                effect_default = naec["effect_default"]
+                parameter = naec["effect_parameter"]
+            elif event == "naecupdate":
+                readSettings()
+            elif settings[event+"_effect"] != '':
+                effect_new = settings[event+"_effect"]
+                duration = int(settings[event+"_effectduration"])
+                effect_default = settings["default_effect"]
+                if( event == "host"):
+                    data = json.loads(json.loads(message)["data"])
+                    print("       <    " + data["display_name"] + ": "+ data["viewers"] + " viewers")
+                    if(  int(data["viewers"]) < int(naec["host_minviewers"]) ):
+                        return
+                elif( event == "cheer" ):
+                    data = json.loads(json.loads(message)["data"])
+                    print("       <    " + data["display_name"] + ": "+ data["bits"] + " bits")
+                    if(  int(data["bits"]) < int(naec["cheer_minbits"]) ):
+                        return
+            else:
+                return
+            my_aurora = Aurora(host, token)
+            my_aurora.on = True
+            my_aurora.effect = effect_new
+            print("       < " + event)
+            if duration>0:
+                durationtext = " for " + str(duration) + " seconds"
+            else:
+                durationtext = ""
+            print("       <    change effect to '" + effect_new + "'" + durationtext)
+            if duration > 0:
+                time.sleep(duration)
+                my_aurora.effect = effect_default
+                print("       <    change effect to '" + effect_default + "'")
+        except:
+            pass
+
+    def run(self):
+        while True:
+            if not q.full():
+                NanoThread.nanoAction(q.get())
+        return
+
+
+
 #---------------------------------------
 #   Open websocket
 #---------------------------------------
@@ -203,12 +226,14 @@ readSettings()
 space = "       "
 print("")
 if __name__ == "__main__":
+    t = NanoThread(name='nanothread')
+    t.start()
     websocket.enableTrace(True)
-    ws = websocket.WebSocketApp(wsServer,
-                            on_message = on_message,
-                            on_error = on_error,
-                            on_close = on_close
-                            )
-    ws.on_open = on_open
-    ws.run_forever()
-
+    while True:
+        ws = websocket.WebSocketApp(wsServer,
+                                on_message = on_message,
+                                on_error = on_error,
+                                on_close = on_close
+                                )
+        ws.on_open = on_open
+        ws.run_forever()
