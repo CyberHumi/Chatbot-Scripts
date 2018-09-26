@@ -21,7 +21,7 @@ https://github.com/CyberHumi/Chatbot-Scripts/wiki/Installation
     (By default it should be `C:\Python27\Lib`).
 
 (4.1) Download and install Python 3.6 or newer for nanoleaf interface:
-      https://www.python.org/ftp/python/3.6.0/python-3.6.0-amd64.exe
+      https://www.python.org/downloads/
 (4.2) Download and install nanoleaf interface (C:\Python36\Scripts\pip install nanoleaf --upgrade)
       If necessary upgrade pip (C:\Python36\python -m pip install --upgrade pip)
 (4.3) Download and install websocket-client (C:\Python36\Scripts\pip install websocket-client)
