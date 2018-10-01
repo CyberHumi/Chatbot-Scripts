@@ -15,7 +15,7 @@ import codecs
 ScriptName = "NA Effect Changer"
 Website = "https://www.twitch.tv/CyberHumi"
 Creator = "CyberHumi"
-Version = "1.4"
+Version = "1.4.1"
 Description = "Nanoleaf Aurora Effect Changer"
 
 #---------------------------------------
@@ -56,6 +56,7 @@ def readConfigFile():
 #---------------------------------------
 def Init():
     global settings
+    path = os.path.dirname(__file__)
     readConfigFile()
     try:
         with open(os.path.join(path, batFile), "w") as bat:
