@@ -86,6 +86,8 @@ Version History
   ~ fix chat command with 0 cost
 1.4:
   ~ hotfix, prevents deadlock between NAEC.py and SLCB by using a msg queue and a seperate thread for Nanoleaf actions
+1.4.1:
+  ~ fix generate new NAEC_SLCB_CLIENT.bat
 
 
 ###############
