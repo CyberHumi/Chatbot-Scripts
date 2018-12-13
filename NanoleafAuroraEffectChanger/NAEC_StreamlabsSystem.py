@@ -49,7 +49,7 @@ def readConfigFile():
             "chat_command_responseNotEnoughPoints": "It seems $username has not enough $currency.",
             "chat_command_default_effect_duration": 5,
             "chat_command_max_effect_duration": 5,
-            "chat_device": "Nanoleaf Aurora I + II"
+            "chat_device": "Nanoleaf Aurora 1 + 2"
         }
 
 #---------------------------------------
