@@ -23,7 +23,7 @@ from nanoleaf import Aurora
 ScriptName = "NA Effect Changer"
 Website = "https://www.twitch.tv/CyberHumi"
 Creator = "CyberHumi"
-Version = "1.4"
+Version = "1.5"
 Description = "Nanoleaf Aurora Effect Changer"
 
 
@@ -39,6 +39,9 @@ res = {}
 wsServer = ""
 jsonAuth = ""
 space = ""
+nl12 = "Nanoleaf Aurora 1 + 2"
+nl1 = "Nanoleaf Aurora 1 only"
+nl2 = "Nanoleaf Aurora 2 only"
 
 # message queue
 BUF_SIZE = 200
@@ -165,47 +168,78 @@ class NanoThread(threading.Thread):
         try:
             host = settings["nanoleaf"]
             token = settings["nanoleaf_token"]
+            host2 = settings["nanoleaf2"]
+            token2 = settings["nanoleaf2_token"]
+            device = nl12
+            if event+"_device" in settings:
+                device = settings[event+"_device"]
             if event == "connected":
-                print("       < waiting for events ...")
+                print("         + devices")
+                if host != "":
+                    print("           o "+nl1+" ("+host+")")
+                if host2 != "":
+                    print("           o "+nl2+" ("+host2+")")
+                print("         + waiting for events ...")
+                return
             elif event == "naec":
-                naec = json.loads(json.loads(message, encoding='utf-8-sig')["data"])
-                effect_new = naec["effect_new"]
-                duration = int(naec["effect_duration"])
-                effect_default = naec["effect_default"]
-                parameter = naec["effect_parameter"]
+                data = json.loads(json.loads(message, encoding='utf-8-sig')["data"])
+                effect_new = data["effect_new"]
+                duration = int(data["effect_duration"])
+                effect_default = data["effect_default"]
+                parameter = data["effect_parameter"]
             elif event == "naecupdate":
                 readSettings()
+                return
             elif settings[event+"_effect"] != '':
                 effect_new = settings[event+"_effect"]
                 duration = int(settings[event+"_effectduration"])
                 effect_default = settings["default_effect"]
                 if( event == "host"):
-                    data = json.loads(json.loads(message)["data"])
-                    print("       <    " + data["display_name"] + ": "+ data["viewers"] + " viewers")
-                    if(  int(data["viewers"]) < int(naec["host_minviewers"]) ):
+                    data = json.loads(json.loads(message, encoding='utf-8-sig')["data"])
+                    if( int(data["viewers"]) < int(settings["host_minviewers"]) ):
                         return
                 elif( event == "cheer" ):
-                    data = json.loads(json.loads(message)["data"])
-                    print("       <    " + data["display_name"] + ": "+ data["bits"] + " bits")
-                    if(  int(data["bits"]) < int(naec["cheer_minbits"]) ):
+                    data = json.loads(json.loads(message, encoding='utf-8-sig')["data"])
+                    if( int(data["bits"]) < int(settings["cheer_minbits"]) ):
                         return
             else:
                 return
-            my_aurora = Aurora(host, token)
-            my_aurora.on = True
-            my_aurora.effect = effect_new
-            print("       < " + event)
+            if( event == "host"):
+                print("         + " + event + " (" + str(data["viewers"])+" viewers)")
+            elif( event == "cheer" ):
+                print("         + " + event + " (" + str(data["bits"])+" bits)")
+            else:
+                print("         + " + event)
+            print("         + actions")
+            if host != "" and '1' in device:
+                my_aurora = Aurora(host, token)
+                my_aurora.on = True
+                my_aurora.effect = effect_new
+            else:
+                print("no '1' in "+device)
+            if host2 != "" and '2' in device:
+                my_aurora2 = Aurora(host2, token2)
+                my_aurora2.on = True
+                my_aurora2.effect = effect_new
             if duration>0:
                 durationtext = " for " + str(duration) + " seconds"
             else:
                 durationtext = ""
-            print("       <    change effect to '" + effect_new + "'" + durationtext)
+            print("           o change effect to '" + effect_new + "'" + durationtext)
             if duration > 0:
                 time.sleep(duration)
-                my_aurora.effect = effect_default
-                print("       <    change effect to '" + effect_default + "'")
-        except:
+                if host != "" and '1' in device:
+                    my_aurora.effect = effect_default
+                if host2 != "" and '2' in device:
+                    my_aurora2.effect = effect_default
+                print("           o change effect to '" + effect_default + "'")
+        except KeyError:
             pass
+        except ValueError:
+            print("Could not convert data to an integer.")
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+            raise
 
     def run(self):
         while True:

@@ -15,7 +15,7 @@ import codecs
 ScriptName = "NA Effect Changer"
 Website = "https://www.twitch.tv/CyberHumi"
 Creator = "CyberHumi"
-Version = "1.4.1"
+Version = "1.5"
 Description = "Nanoleaf Aurora Effect Changer"
 
 #---------------------------------------
@@ -48,7 +48,8 @@ def readConfigFile():
             "chat_command_onUserCooldown": "$username the command is still on user cooldown for $cd seconds!",
             "chat_command_responseNotEnoughPoints": "It seems $username has not enough $currency.",
             "chat_command_default_effect_duration": 5,
-            "chat_command_max_effect_duration": 5
+            "chat_command_max_effect_duration": 5,
+            "chat_device": "Nanoleaf Aurora I + II"
         }
 
 #---------------------------------------

@@ -5,21 +5,35 @@
         "value": "Nanoleaf-Aurora",
         "label": "Nanoleaf Aurora hostname or IP",
         "tooltip": "hostname or IP address",
-        "group": "Nanoleaf Aurora"
+        "group": "Nanoleaf Aurora 1"
     },
     "nanoleaf_token": {
         "type": "textbox",
         "value": "",
         "label": "Nanoleaf Aurora connection token",
         "tooltip": "Nanoleaf Aurora connection token",
-        "group": "Nanoleaf Aurora"
+        "group": "Nanoleaf Aurora 1"
+    },
+    "nanoleaf2": {
+        "type": "textbox",
+        "value": "",
+        "label": "Nanoleaf Aurora hostname or IP",
+        "tooltip": "hostname or IP address",
+        "group": "Nanoleaf Aurora 2"
+    },
+    "nanoleaf2_token": {
+        "type": "textbox",
+        "value": "",
+        "label": "Nanoleaf Aurora connection token",
+        "tooltip": "Nanoleaf Aurora connection token",
+        "group": "Nanoleaf Aurora 2"
     },
     "python3": {
         "type": "textbox",
         "value": "",
         "label": "Python 3 Directory",
         "tooltip": "Python 3 Directory",
-        "group": "Nanoleaf Aurora"
+        "group": "Python 3"
     },
     "default_effect": {
         "type": "textbox",
@@ -45,6 +59,18 @@
         "tooltip": "Follow effect duration in seconds",
         "group": "Follow"
     },
+    "follow_device": {
+        "type": "dropdown",
+        "label": "Nanoleaf device",
+        "value": "Nanoleaf Aurora 1 + 2",
+        "tooltip": "",
+        "items": [
+            "Nanoleaf Aurora 1 + 2",
+            "Nanoleaf Aurora 1 only",
+            "Nanoleaf Aurora 2 only"
+        ],
+        "group": "Follow"
+    },
     "sub_effect": {
         "type": "textbox",
         "label": "Effect name",
@@ -62,6 +88,18 @@
         "tooltip": "Subscription effect duration in seconds",
         "group": "Subscription"
     },
+    "sub_device": {
+        "type": "dropdown",
+        "label": "Nanoleaf device",
+        "value": "Nanoleaf Aurora 1 + 2",
+        "tooltip": "",
+        "items": [
+            "Nanoleaf Aurora 1 + 2",
+            "Nanoleaf Aurora 1 only",
+            "Nanoleaf Aurora 2 only"
+        ],
+        "group": "Subscription"
+    },
     "donation_effect": {
         "type": "textbox",
         "label": "Effect name",
@@ -77,6 +115,18 @@
         "ticks": 1,
         "label": "Effect duration (seconds)",
         "tooltip": "Donation effect duration in seconds",
+        "group": "Donation"
+    },
+    "donation_device": {
+        "type": "dropdown",
+        "label": "Nanoleaf device",
+        "value": "Nanoleaf Aurora 1 + 2",
+        "tooltip": "",
+        "items": [
+            "Nanoleaf Aurora 1 + 2",
+            "Nanoleaf Aurora 1 only",
+            "Nanoleaf Aurora 2 only"
+        ],
         "group": "Donation"
     },
     "cheer_effect": {
@@ -103,6 +153,18 @@
         "tooltip": "min. bits",
         "group": "Cheer"
     },
+    "cheer_device": {
+        "type": "dropdown",
+        "label": "Nanoleaf device",
+        "value": "Nanoleaf Aurora 1 + 2",
+        "tooltip": "",
+        "items": [
+            "Nanoleaf Aurora 1 + 2",
+            "Nanoleaf Aurora 1 only",
+            "Nanoleaf Aurora 2 only"
+        ],
+        "group": "Cheer"
+    },
     "host_effect": {
         "type": "textbox",
         "label": "Effect name",
@@ -125,6 +187,18 @@
         "label": "min. viewers",
         "value": 0,
         "tooltip": "min. viewers",
+        "group": "Host"
+    },
+    "host_device": {
+        "type": "dropdown",
+        "label": "Nanoleaf device",
+        "value": "Nanoleaf Aurora 1 + 2",
+        "tooltip": "",
+        "items": [
+            "Nanoleaf Aurora 1 + 2",
+            "Nanoleaf Aurora 1 only",
+            "Nanoleaf Aurora 2 only"
+        ],
         "group": "Host"
     },
     "chat_command": {
@@ -222,6 +296,18 @@
         "ticks": 1,
         "label": "Max. effect duration (seconds)",
         "tooltip": "Command max. effect duration in seconds",
+        "group": "Chat command"
+    },
+    "chat_device": {
+        "type": "dropdown",
+        "label": "Nanoleaf device",
+        "value": "Nanoleaf Aurora 1 + 2",
+        "tooltip": "",
+        "items": [
+            "Nanoleaf Aurora 1 + 2",
+            "Nanoleaf Aurora 1 only",
+            "Nanoleaf Aurora 2 only"
+        ],
         "group": "Chat command"
     }
 }

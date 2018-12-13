@@ -3,7 +3,7 @@ Info
 #################
 Description: Nanoleaf Aurora Effect Changer for Streamlabs Chatbot
 Created by: CyberHumi - www.twitch.tv/CyberHumi, www.twitter.com/CyberHumiDE
-Version: 1.4.1
+Version: 1.5
 
 
 ################
@@ -41,6 +41,7 @@ https://github.com/CyberHumi/Chatbot-Scripts/wiki/Installation
     nnnnnnnnnnnnnnnnnnnnnnnnn
 
     Note the IP and token. You need them later.
+    Repeat this step for a 2nd Nanoleaf device.
 
 (6) Import the "NA Effect Changer" script into the SL Chatbot. You can use the Import function per button on the top right in the "Scripts" tab.
    (By default it should be `C:\Users\<Username>\AppData\Roaming\Streamlabs\Streamlabs Chatbot\Services\Scripts`)
@@ -88,6 +89,9 @@ Version History
   ~ hotfix, prevents deadlock between NAEC.py and SLCB by using a msg queue and a seperate thread for Nanoleaf actions
 1.4.1:
   ~ fix problem when generating new NAEC_SLCB_CLIENT.bat
+1.5:
+  ~ add 2nd Nanoleaf Aurora device support
+  ~ fix host and cheer alert (wrong variable name)
 
 
 ###############
@@ -111,6 +115,9 @@ Q: I get the following message:
    "HTTPConnectionPool(host='192.168.x.y', port=16021): Max retries exceeded with url: /api/v1//state
    (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000017EB352A128>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))"
 A: The connection token is wrong or missing.
+
+Q: SLCB crashes when I use this script. What can I do?
+A; Clear the SLCB cache directory.
 
 
 ###############
