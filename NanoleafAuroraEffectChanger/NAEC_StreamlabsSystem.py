@@ -15,7 +15,7 @@ import codecs
 ScriptName = "NA Effect Changer"
 Website = "https://www.twitch.tv/CyberHumi"
 Creator = "CyberHumi"
-Version = "1.5"
+Version = "1.5.1"
 Description = "Nanoleaf Aurora Effect Changer"
 
 #---------------------------------------
@@ -49,7 +49,7 @@ def readConfigFile():
             "chat_command_responseNotEnoughPoints": "It seems $username has not enough $currency.",
             "chat_command_default_effect_duration": 5,
             "chat_command_max_effect_duration": 5,
-            "chat_device": "Nanoleaf Aurora 1 + 2"
+            "chat_device": "Nanoleaf Aurora I + II"
         }
 
 #---------------------------------------
@@ -152,3 +152,28 @@ def ScriptToggled(state):
         readConfigFile()
         Parent.BroadcastWsEvent("EVENT_NAECUPDATE", "")
     return
+
+
+#---------------------------
+#   Weblinks
+#---------------------------
+def OpenWebsiteGitHub():
+    os.startfile("https://github.com/CyberHumi/Chatbot-Scripts")
+    return
+
+def OpenWebsiteGitHubInstallation():
+    os.startfile("https://github.com/CyberHumi/Chatbot-Scripts/wiki/Installation")
+    return
+
+def OpenWebsiteTwitter():
+    os.startfile("https://twitter.com/CyberHumiDE")
+    return
+
+def OpenWebsiteTwitch():
+    os.startfile("https://www.twitch.tv/cyberhumi")
+    return
+
+def OpenWebsiteDiscord():
+    os.startfile("https://discord.gg/UYpvv55")
+    return
+

@@ -309,5 +309,45 @@
             "Nanoleaf Aurora 2 only"
         ],
         "group": "Chat command"
+    },
+    "browseGitHub": {
+        "type": "button",
+        "label": "Open GitHub (latest script version)",
+        "tooltip": "Opens a tab in your default browser.",
+        "function": "OpenWebsiteGitHub",
+        "wsevent": "",
+        "group": "Weblinks"
+    },
+    "browseGitHubInstallation": {
+        "type": "button",
+        "label": "Open GitHub (Installation guide)",
+        "tooltip": "Opens a tab in your default browser.",
+        "function": "OpenWebsiteGitHubInstallation",
+        "wsevent": "",
+        "group": "Weblinks"
+    },
+    "browseDiscord": {
+        "type": "button",
+        "label": "Open Discord (Support)",
+        "tooltip": "Opens a tab in your default browser.",
+        "function": "OpenWebsiteDiscord",
+        "wsevent": "",
+        "group": "Weblinks"
+    },
+    "browseTwitter": {
+        "type": "button",
+        "label": "Open Twitter (CyberHumiDE)",
+        "tooltip": "Opens a tab in your default browser.",
+        "function": "OpenWebsiteTwitter",
+        "wsevent": "",
+        "group": "Weblinks"
+    },
+    "browseTwitch": {
+        "type": "button",
+        "label": "Open Twitch (CyberHumi)",
+        "tooltip": "Opens a tab in your default browser.",
+        "function": "OpenWebsiteTwitch",
+        "wsevent": "",
+        "group": "Weblinks"
     }
 }
