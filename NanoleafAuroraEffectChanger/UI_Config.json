@@ -310,6 +310,146 @@
         ],
         "group": "Chat command"
     },
+    "chat_cmd1": {
+        "type": "textbox",
+        "label": "Command 1",
+        "value": "",
+        "tooltip": "Chat command",
+        "group": "Additional chat commands"
+    },
+    "chat_cmd1e": {
+        "type": "textbox",
+        "label": "Command 1: Nanoleaf Aurora effect name",
+        "value": "",
+        "tooltip": "Chat command",
+        "group": "Additional chat commands"
+    },
+    "chat_cmd2": {
+        "type": "textbox",
+        "label": "Command 2",
+        "value": "",
+        "tooltip": "Chat command",
+        "group": "Additional chat commands"
+    },
+    "chat_cmd2e": {
+        "type": "textbox",
+        "label": "Command 2: Nanoleaf Aurora effect name",
+        "value": "",
+        "tooltip": "Chat command",
+        "group": "Additional chat commands"
+    },
+    "chat_cmd3": {
+        "type": "textbox",
+        "label": "Command 3",
+        "value": "",
+        "tooltip": "Chat command",
+        "group": "Additional chat commands"
+    },
+    "chat_cmd3e": {
+        "type": "textbox",
+        "label": "Command 3: Nanoleaf Aurora effect name",
+        "value": "",
+        "tooltip": "Chat command",
+        "group": "Additional chat commands"
+    },
+    "chat_cmd4": {
+        "type": "textbox",
+        "label": "Command 4",
+        "value": "",
+        "tooltip": "Chat command",
+        "group": "Additional chat commands"
+    },
+    "chat_cmd4e": {
+        "type": "textbox",
+        "label": "Command 4: Nanoleaf Aurora effect name",
+        "value": "",
+        "tooltip": "Chat command",
+        "group": "Additional chat commands"
+    },
+    "chat_cmd5": {
+        "type": "textbox",
+        "label": "Command 5",
+        "value": "",
+        "tooltip": "Chat command",
+        "group": "Additional chat commands"
+    },
+    "chat_cmd5e": {
+        "type": "textbox",
+        "label": "Command 5: Nanoleaf Aurora effect name",
+        "value": "",
+        "tooltip": "Chat command",
+        "group": "Additional chat commands"
+    },
+    "chat_cmd6": {
+        "type": "textbox",
+        "label": "Command 6",
+        "value": "",
+        "tooltip": "Chat command",
+        "group": "Additional chat commands"
+    },
+    "chat_cmd6e": {
+        "type": "textbox",
+        "label": "Command 6: Nanoleaf Aurora effect name",
+        "value": "",
+        "tooltip": "Chat command",
+        "group": "Additional chat commands"
+    },
+    "chat_cmd7": {
+        "type": "textbox",
+        "label": "Command 7",
+        "value": "",
+        "tooltip": "Chat command",
+        "group": "Additional chat commands"
+    },
+    "chat_cmd7e": {
+        "type": "textbox",
+        "label": "Command 7: Nanoleaf Aurora effect name",
+        "value": "",
+        "tooltip": "Chat command",
+        "group": "Additional chat commands"
+    },
+    "chat_cmd8": {
+        "type": "textbox",
+        "label": "Command 8",
+        "value": "",
+        "tooltip": "Chat command",
+        "group": "Additional chat commands"
+    },
+    "chat_cmd8e": {
+        "type": "textbox",
+        "label": "Command 8: Nanoleaf Aurora effect name",
+        "value": "",
+        "tooltip": "Chat command",
+        "group": "Additional chat commands"
+    },
+    "chat_cmd9": {
+        "type": "textbox",
+        "label": "Command 9",
+        "value": "",
+        "tooltip": "Chat command",
+        "group": "Additional chat commands"
+    },
+    "chat_cmd9e": {
+        "type": "textbox",
+        "label": "Command 9: Nanoleaf Aurora effect name",
+        "value": "",
+        "tooltip": "Chat command",
+        "group": "Additional chat commands"
+    },
+    "chat_cmd10": {
+        "type": "textbox",
+        "label": "Command 10",
+        "value": "",
+        "tooltip": "Chat command",
+        "group": "Additional chat commands"
+    },
+    "chat_cmd10e": {
+        "type": "textbox",
+        "label": "Command 10: Nanoleaf Aurora effect name",
+        "value": "",
+        "tooltip": "Chat command",
+        "group": "Additional chat commands"
+    },
     "browseGitHub": {
         "type": "button",
         "label": "Open GitHub (latest script version)",
@@ -328,7 +468,7 @@
     },
     "browseDiscord": {
         "type": "button",
-        "label": "Open Discord (Support)",
+        "label": "Open Discord (Support EN/DE)",
         "tooltip": "Opens a tab in your default browser.",
         "function": "OpenWebsiteDiscord",
         "wsevent": "",

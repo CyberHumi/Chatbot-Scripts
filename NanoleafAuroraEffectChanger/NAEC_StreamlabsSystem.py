@@ -15,7 +15,7 @@ import codecs
 ScriptName = "NA Effect Changer"
 Website = "https://www.twitch.tv/CyberHumi"
 Creator = "CyberHumi"
-Version = "1.5.1"
+Version = "1.6"
 Description = "Nanoleaf Aurora Effect Changer"
 
 #---------------------------------------
@@ -81,25 +81,31 @@ def Execute(data):
         "effect_parameter": ""
     }
 
-    if data.IsChatMessage() and data.GetParam(0) == settings["chat_command"] and Parent.HasPermission(data.User, settings["chat_command_permission"], ""):
+    cmds = [ settings["chat_command"], settings["chat_cmd1"], settings["chat_cmd2"], settings["chat_cmd3"], settings["chat_cmd4"], settings["chat_cmd5"], settings["chat_cmd6"], settings["chat_cmd7"], settings["chat_cmd8"], settings["chat_cmd9"], settings["chat_cmd10"] ]
+    if data.IsChatMessage() and Parent.HasPermission(data.User, settings["chat_command_permission"], "") and data.GetParam(0) in cmds:
         tempResponseString = ""
         userId = data.User
         username = data.UserName
         cd = ""
 
         effect_new = ""
-        for x in range(1, data.GetParamCount()):
-            if x == data.GetParamCount()-1:
-                try:
-                    int(data.GetParam(x))
-                    if( int(data.GetParam(x)) < int(settings["chat_command_max_effect_duration"]) ):
-                        naecEvent["effect_duration"] = data.GetParam(x)
-                    else:
-                        naecEvent["effect_duration"] = settings["chat_command_max_effect_duration"]
-                except:
+        if data.GetParam(0) == settings["chat_command"]:
+            for x in range(1, data.GetParamCount()):
+                if x == data.GetParamCount()-1:
+                    try:
+                        int(data.GetParam(x))
+                        if( int(data.GetParam(x)) < int(settings["chat_command_max_effect_duration"]) ):
+                            naecEvent["effect_duration"] = data.GetParam(x)
+                        else:
+                            naecEvent["effect_duration"] = settings["chat_command_max_effect_duration"]
+                    except:
+                        effect_new += data.GetParam(x) + " "
+                else:
                     effect_new += data.GetParam(x) + " "
-            else:
-                effect_new += data.GetParam(x) + " "
+        else:
+            for x in range(1,10):
+                if data.GetParam(0) == settings["chat_cmd"+str(x)]:
+                    effect_new += settings["chat_cmd"+str(x)+"e"]
         effect_new = effect_new.strip()
         if effect_new != "":
             naecEvent["effect_new"] = effect_new
