@@ -103,9 +103,9 @@ def Execute(data):
                 else:
                     effect_new += data.GetParam(x) + " "
         else:
-            for x in range(1,10):
+            for x in range(1,11):
                 if data.GetParam(0) == settings["chat_cmd"+str(x)]:
-                    effect_new += settings["chat_cmd"+str(x)+"e"]
+                   effect_new += settings["chat_cmd"+str(x)+"e"]
         effect_new = effect_new.strip()
         if effect_new != "":
             naecEvent["effect_new"] = effect_new
