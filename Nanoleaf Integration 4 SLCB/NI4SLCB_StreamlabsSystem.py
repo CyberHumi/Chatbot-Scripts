@@ -37,7 +37,7 @@ def readConfigFile():
     except:
         settings = {
             "chat_command": "!nl",
-            "chat_brightness": true,
+            "chat_brightness": True,
             "chat_command_permission": "Moderator",
             "chat_command_onEvent": "$username changed Nanoleaf light effect",
             "chat_command_costs": 0,
@@ -45,7 +45,17 @@ def readConfigFile():
             "chat_command_onCooldown": "$username, the command is still on cooldown for $cd seconds!",
             "chat_command_usercooldown": 5,
             "chat_command_onUserCooldown": "$username the command is still on user cooldown for $cd seconds!",
-            "chat_command_responseNotEnoughPoints": "It seems $username has not enough $currency."
+            "chat_command_responseNotEnoughPoints": "It seems $username has not enough $currency.",
+            "chat_cmd1": "",
+            "chat_cmd2": "",
+            "chat_cmd3": "",
+            "chat_cmd4": "",
+            "chat_cmd5": "",
+            "chat_cmd6": "",
+            "chat_cmd7": "",
+            "chat_cmd8": "",
+            "chat_cmd9": "",
+            "chat_cmd10": ""
         }
 
 #---------------------------------------
