@@ -1,7 +1,7 @@
 # Chatbot-Scripts
 Scripts for Streamlabs Chatbot
 
-## Nanoleaf Integration 4 SLCB
+## Nanoleaf Integration for SLCB
 
 Donwload*: [NI4SLCB_v1.0.zip](https://github.com/CyberHumi/Documents/raw/master/download/NI4SLCB_v1.0.zip)
 
