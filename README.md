@@ -15,7 +15,7 @@ Supported streaming services: Twitch, Mixer, YouTube
 
 
 ## NanoleafAuroraEffectChanger
-Status: __End of Life__, please use _Nanoleaf Integration 4 SLCB_ 
+Status: __End of Life__, please use _Nanoleaf Integration for SLCB_ 
 
 Nanoleaf Aurora light panel integration for Streamlabs Chatbot. Change the light effect with a chat command or when an event occurs.
 
