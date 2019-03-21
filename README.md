@@ -3,7 +3,7 @@ Scripts for Streamlabs Chatbot
 
 ## Nanoleaf Integration for SLCB
 
-Donwload*: [NI4SLCB_v1.0.zip](https://github.com/CyberHumi/Documents/raw/master/download/NI4SLCB_v1.0.zip)
+Donwload*: [NI4SLCB_v1.0.1.zip](https://github.com/CyberHumi/Documents/raw/master/download/NI4SLCB_v1.0.1.zip)
 
 Nanoleaf light panel integration for Streamlabs Chatbot. Change the light effect with a chat command or when an alert event occurs.
 
