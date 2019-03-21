@@ -11,7 +11,7 @@ Possible Events: Follow, Subscription, Donation, Cheer and Host
 
 Supported streaming services: Twitch, Mixer, YouTube
 
-* Download includes [Nanoleaf Integration 4 SLCB](https://github.com/CyberHumi/Chatbot-Scripts) and [Nanoleaf Integration for Streamlabs Chatbot: Websocket client](https://github.com/CyberHumi/NI4SLCB)
+\* Download includes [Nanoleaf Integration 4 SLCB](https://github.com/CyberHumi/Chatbot-Scripts) and [Nanoleaf Integration for Streamlabs Chatbot: Websocket client](https://github.com/CyberHumi/NI4SLCB)
 
 
 ## NanoleafAuroraEffectChanger
